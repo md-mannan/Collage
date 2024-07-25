@@ -16,9 +16,9 @@ class StudentController extends Controller
 
     public function viewStudent(String $id)
     {
-        $data = DB::table('students')->where('id', $id)->get();
+        $data = DB::table('students')->find($id);
 
-        return view('user', ['data' => $data]);
+        return view('user', ['student' => $data]);
     }
 
     public function ShowUser(String $id)
@@ -33,14 +33,14 @@ class StudentController extends Controller
     }
     public function AddStudent(Request $req)
     {
-        $name = $req->input('name');
-        $email = $req->input('email');
-        $age = $req->input('age');
-        $gender = $req->input('gender');
-        $country = $req->input('country');
-        $city = $req->input('city');
-        $address = $req->input('address');
-        $phone = $req->input('phone');
+        $name = $req->input('studentName');
+        $email = $req->input('studentEmail');
+        $age = $req->input('studentAge');
+        $gender = $req->input('studentGender');
+        $country = $req->input('studentCountry');
+        $city = $req->input('studentCity');
+        $address = $req->input('studentAddress');
+        $phone = $req->input('studentPhone');
         $insert = DB::table('students')->insertOrIgnore([
             'name' => $name,
             'email' => $email,
@@ -58,17 +58,17 @@ class StudentController extends Controller
             return response()->json('Email is Duplicate');
         }
     }
-    public function UpdateStudent(Request $req)
+    public function UpdateStudent(Request $req, String  $id)
     {
-        $id = $req->input('id');
-        $name = $req->input('name');
-        $email = $req->input('email');
-        $age = $req->input('age');
-        $gender = $req->input('gender');
-        $country = $req->input('country');
-        $city = $req->input('city');
-        $address = $req->input('address');
-        $phone = $req->input('phone');
+        // $id = $req->input('studentId');
+        $name = $req->input('studentName');
+        $email = $req->input('studentEmail');
+        $age = $req->input('studentAge');
+        $gender = $req->input('studentGender');
+        $country = $req->input('studentCountry');
+        $city = $req->input('studentCity');
+        $address = $req->input('studentAddress');
+        $phone = $req->input('studentPhone');
         $update = DB::table('students')->where('id', $id)->update([
             'name' => $name,
             'email' => $email,

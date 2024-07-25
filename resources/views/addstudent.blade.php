@@ -13,27 +13,27 @@
 
 
             <!-- Update Form -->
-            <form id="updateForm">
-
+            <form id="updateForm" action="{{ route('student.insert') }}" method="POST">
+                @csrf
 
                 <div class="input-group mb-3">
                     <label for="studentName" class="input-group-text">Name</label>
-                    <input class="form-control" type="text" id="studentName">
+                    <input class="form-control" type="text" name="studentName">
                 </div>
                 <div class="input-group mb-3">
                     <label for="studentEmail" class="input-group-text">Email</label>
-                    <input class="form-control" type="email" id="studentEmail">
+                    <input class="form-control" type="email" name="studentEmail">
                 </div>
 
                 <div class="input-group mb-3">
                     <label for="studentAge" class="input-group-text">Age</label>
-                    <input class="form-control" type="number" id="studentAge">
+                    <input class="form-control" type="number" name="studentAge">
                 </div>
 
 
                 <div class="input-group mb-3">
                     <label for="studentGender" class="input-group-text">Gender:</label>
-                    <select class="form-select" aria-label="Default select Gender" id="studentGender">
+                    <select class="form-select" aria-label="Default select Gender" name="studentGender">
                         <option selected value="">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -47,26 +47,26 @@
                 </div>
                 <div class="input-group mb-3">
                     <label for="studentCity" class="input-group-text">City:</label>
-                    <input type="text" class="form-control" id="studentCity" />
+                    <input type="text" class="form-control" name="studentCity" />
                 </div>
                 <div class="input-group mb-3">
                     <label for="studentAddress" class="input-group-text">Address:</label>
-                    <textarea class="form-control" id="studentAddress" rows="3"> </textarea>
+                    <textarea class="form-control" name="studentAddress" rows="3"> </textarea>
                 </div>
                 <div class="input-group mb-3">
                     <label for="studentPhone" class="input-group-text">Phone:</label>
-                    <input type="text" class="form-control" id="studentPhone" />
+                    <input type="text" class="form-control" name="studentPhone" />
                 </div>
 
 
-                <button id="btnInsert" type="button" class="btn btn-primary">Insert</button>
+                <button id="btnInsert" type="submit" class="btn btn-primary">Insert</button>
             </form>
         </div>
 
     </div>
 
 
-    <script>
+    {{-- <script>
         var btnInsert = document.getElementById('btnInsert');
         btnInsert.addEventListener('click', function(e) {
             e.preventDefault();
@@ -137,7 +137,7 @@
                     console.log(error);
                 });
         });
-    </script>
+    </script> --}}
 
 
 
