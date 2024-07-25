@@ -22,8 +22,8 @@ class StudentFactory extends Factory
             'age' => fake()->numberBetween(18, 30),
             'gender' => fake()->randomElement(['Female', 'Male']),
             'country' => fake()->country(),
-            'city' => fake()->city(),
-            'address' => fake()->address(),
+            'city' => fake()->state(),
+            'address' => fake()->address('en_IN'),
             'phone' => fake()->phoneNumber()
         ];
     }
